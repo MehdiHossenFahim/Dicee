@@ -1,37 +1,58 @@
-.container {
-  width: 70%;
-  margin: auto;
-  text-align: center;
-}
-
-.dice {
-  text-align: center;
-  display: inline-block;
-  border: none;
-  border-radius: 20px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background-color: #6fd1d7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+  flex: 1;
 }
 
 h1 {
-  margin: 30px;
+  margin: 20px 0 40px;
   font-family: "Irish Grover", system-ui;
   text-shadow: 2px 0px 2px rgba(230, 41, 41, 0.3);
-  font-size: 6rem;
+  font-size: clamp(2.2rem, 6vw, 6rem);
   color: #093c5d;
 }
 
 p {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 3vw, 2rem);
   color: #093c5d;
   font-family: "Indie Flower", cursive;
+  margin-bottom: 15px;
+}
+
+.dice-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.dice {
+  text-align: center;
+  border-radius: 20px;
+  padding: 10px;
 }
 
 img {
-  width: 80%;
-  border: none;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
   filter: drop-shadow(15px 15px 2px rgba(9, 60, 93, 0.3));
   transition: transform 0.1s;
 }
@@ -43,22 +64,26 @@ img {
 .retry {
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin-top: 40px;
 }
+
 .try-again {
   background-color: rgba(59, 117, 151, 0.3);
-  margin-top: 50px;
-  font-size: 2rem;
+  font-size: clamp(1rem, 2.5vw, 2rem);
   font-family: "Indie Flower", cursive;
   color: rgba(254, 254, 254, 0.8);
   border: none;
   border-radius: 10px;
-  padding: 5px 15px;
+  padding: 10px 25px;
+  cursor: pointer;
+  transition: 0.3s;
 }
+
 .try-again:hover {
   background-color: #3b7597;
   color: rgb(254, 254, 254);
 }
+
 .try-again:active {
   background-color: #e03f4f;
   color: #f8c463;
@@ -69,8 +94,37 @@ img {
 }
 
 footer {
-  margin-top: 5%;
+  margin: 30px 0 20px;
   color: #093c5d;
   text-align: center;
   font-family: "Indie Flower", cursive;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .dice-wrapper {
+    gap: 20px;
+  }
+
+  img {
+    max-width: 180px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .dice-wrapper {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  img {
+    max-width: 150px;
+  }
+
+  .try-again {
+    width: 100%;
+    max-width: 250px;
+  }
 }
