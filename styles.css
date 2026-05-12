@@ -32,7 +32,7 @@ p {
 img {
   width: 80%;
   border: none;
-  filter: drop-shadow(15px 15px 2px rgba(230, 41, 41, 0.3));
+  filter: drop-shadow(15px 15px 2px rgb(9, 60, 93,0.3));
 }
 
 .retry {
